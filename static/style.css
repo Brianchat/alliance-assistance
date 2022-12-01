@@ -38,7 +38,7 @@ div.error span.title {
 	font-size: 1rem;
 }
 
-.button:hover:before {
+.button:hover::before, svg.logo.signedIn:hover::before {
 	content: '';
 	background: linear-gradient(
 		45deg,
@@ -80,7 +80,7 @@ div.error span.title {
 	}
 }
 
-.button:after {
+.button::after {
 	z-index: -1;
 	content: '';
 	position: absolute;

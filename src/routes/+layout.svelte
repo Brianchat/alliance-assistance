@@ -97,7 +97,7 @@
 		padding: 0px;
 		font-family: 'Maven Pro', sans-serif;
 		overflow: hidden;
-		background-color: #eee;
+		background-color: #e7ece7;
 	}
 
 	#spinner {
@@ -126,7 +126,7 @@
 		left: var(--sidebar-width);
 		right: 0px;
 		bottom: 0px;
-		background-color: #eee;
+		background-color: #e7ece7;
 		overflow: auto;
 		z-index: 1;
 	}

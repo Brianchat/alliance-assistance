@@ -1,4 +1,5 @@
 import { build, files, version } from '$service-worker';
+import { status } from '$lib/stores/status';
 
 const worker = self;
 const FILES = `cache${version}`;
@@ -15,6 +16,7 @@ worker.addEventListener('install', (event) => {
 			.then((cache) => cache.addAll(to_cache))
 			.then(() => {
 				worker.skipWaiting();
+				status.update(n => n.canInstall=true);
 			})
 	);
 });

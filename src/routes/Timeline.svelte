@@ -207,7 +207,7 @@
 <style>
 	.timeline {
 		width: calc(var(--width) * 1px - 1px);
-		background-color: #eee;
+		background-color: #e7ece7;
 		margin-right: auto;
 		margin-left: auto;
 		position: relative;
@@ -260,7 +260,7 @@
 		width: 50px;
 		height: 50px;
 		font-size: 30px;
-		color: #808080;
+		color: #fff;
 		border: solid 1px #bc07bc;
 		box-shadow: 2px 2px 15px #555;
 		padding: 0px;

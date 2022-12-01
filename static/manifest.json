@@ -10,7 +10,7 @@
       }
     ],
     "background_color": "#2d2d2d",
-    "display": "standalone",
+    "display": "minimal-ui",
     "scope": "/",
     "theme_color": "#bc07bc",
     "shortcuts": [
