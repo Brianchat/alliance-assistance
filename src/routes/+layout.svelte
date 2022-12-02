@@ -109,8 +109,10 @@
 	}
 
 	nav {
+		position: fixed;
 		height: var(--nav-height, 50px);
-		width: 100%;
+		left: 0px;
+		right: 0px;
 		margin: 0px;
 		background-color: #2d2d2d;
 		padding: 0px;

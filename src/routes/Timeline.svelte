@@ -259,7 +259,7 @@
 		left: 10px;
 		width: 50px;
 		height: 50px;
-		font-size: 30px;
+		font-size: 31px;
 		color: #fff;
 		border: solid 1px #bc07bc;
 		box-shadow: 2px 2px 15px #555;
