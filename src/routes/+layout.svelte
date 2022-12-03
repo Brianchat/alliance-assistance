@@ -15,7 +15,10 @@
 	import Login from './login.svelte';
 	import Logo from './logo.svelte';
 
+
+	export const prerender = false;
 	export const ssr = false;
+	export const csr = true;
 
 	let h;
 	let w;
