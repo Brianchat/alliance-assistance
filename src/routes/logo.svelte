@@ -53,13 +53,9 @@
                 <animate attributeName="stop-color" values="#00ffd5; #002bff; #7a00ff; #ff00c8; #ff0000; #ff7300; #fffb00; #48ff00; #00ffd5;" dur="3s" repeatCount="indefinite" />
             </stop>
         </linearGradient>
-        <filter id='shadow' color-interpolation-filters="sRGB">
-            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-            <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.7" intercept="0" />
-            </feComponentTransfer>
-            <feComposite in="SourceGraphic" operator="over" />
+        <filter id='shadow' >
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+            <feComposite in="SourceGraphic" operator="over" /> 
         </filter>
     </defs>
     
@@ -85,9 +81,11 @@
         display: block;
         height: 145px;
 		width: 255px;
+        transition-property: top, left, height;
         transition-duration: 2s;
         transition-timing-function: cubic-bezier();
         transition-delay: 0.5s;
+        z-index: 30;
     }
 
     svg.working rect#bg, svg.signedIn:hover rect#bg {
@@ -100,7 +98,7 @@
 
     svg path#N, svg path#Q {
         transition-delay: 0.2s;
-        transition-duration: 1s;
+        transition-duration: 0.7s;
         fill: #000;
     }
 
@@ -112,13 +110,10 @@
 	}
 
     svg.signedIn path#N, svg.signedIn path#Q {
-        transition-delay: 2s;
         fill: #c0c0c0;
     }
 
     svg.signedIn:hover path#N, svg.signedIn:hover path#Q {
-        transition-delay: 0s;
-        transition-duration: 0s;
         fill: #fff;
     }
 
