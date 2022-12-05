@@ -1,5 +1,8 @@
-async function handleRequest(request) {
-    const upgradeHeader = request.headers.get('Upgrade');
+import { error } from '@sveltejs/kit';
+ 
+/** @type {import('./$types').RequestHandler} */
+export function GET({ request, url }) {
+  const upgradeHeader = request.headers.get('Upgrade');
     if (!upgradeHeader || upgradeHeader !== 'websocket') {
       return new Response('Expected Upgrade: websocket', { status: 426 });
     }
@@ -16,4 +19,4 @@ async function handleRequest(request) {
       status: 101,
       webSocket: client,
     });
-  }
+}

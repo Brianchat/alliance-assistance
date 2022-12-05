@@ -43,6 +43,11 @@
 
 	onMount(() => {
 		checkAuthStatus();
+		const websocket = new WebSocket(`wss://${location.host}/ws`);
+		websocket.addEventListener('message', event => {
+			console.log('Message received from server');
+			console.log(event.data);
+		});
 	});
 
 	$: sidebarWidth = 0; // w > 100 ? '240px' : '50px';
