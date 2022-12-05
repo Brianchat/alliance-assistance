@@ -41,13 +41,14 @@
         goto(url);
     };
 
-	onMount(() => {
+	onMount(async () => {
 		checkAuthStatus();
 		const websocket = new WebSocket(`wss://${location.host}/ws`);
 		websocket.addEventListener('message', event => {
 			console.log('Message received from server');
 			console.log(event.data);
 		});
+		await websocket.accept();
 		websocket.send('hello'); 
 	});
 
