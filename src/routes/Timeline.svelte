@@ -195,7 +195,11 @@
 		{/each}
 	</svg>
 	{#each labels as d }
-	<div on:click={select(d.data)} class="timeline-event gradient-text {d.data._id == $task._id ? 'active' :'' }" style="left: 70px;  top:{d.currentPos - 10}px; width:{d.data._id == $task._id ?  ''+width+'px' :  'auto'}; height:20px; border-color:{ d.data.color }">
+	<div on:click={select(d.data)} 
+		on:keypress={select(d.data)} 
+		class="timeline-event gradient-text {d.data._id == $task._id ? 'active' :'' }" 
+		style="left: 70px;  top:{d.currentPos - 10}px; width:{d.data._id == $task._id ?  ''+width+'px' :  'auto'}; height:20px; border-color:{ d.data.color }"
+	>
 		<span>{ d.data.title }</span>
 	</div>
 	{/each}
