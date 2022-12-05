@@ -13,7 +13,9 @@ export function GET({ request, url }) {
     server.accept();
     server.addEventListener('message', event => {
       console.log(event.data);
+      server.send(`Received: ${event.data}`)
     });
+    server.send('CONTACT');
   
     return new Response(null, {
       status: 101,

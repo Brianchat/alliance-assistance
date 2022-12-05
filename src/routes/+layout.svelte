@@ -48,6 +48,7 @@
 			console.log('Message received from server');
 			console.log(event.data);
 		});
+		websocket.send('hello'); 
 	});
 
 	$: sidebarWidth = 0; // w > 100 ? '240px' : '50px';
