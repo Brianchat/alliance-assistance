@@ -9,8 +9,7 @@
 	import MultiSelect from 'svelte-multiselect';
 	import { Chasing } from 'svelte-loading-spinners';
 
-	import { sync } from '$lib/stores/db';
-	import { user, logOut, checkAuthStatus } from '$lib/stores/user';
+	import { sync, user, logOut, checkAuthStatus } from '$lib/stores/db';
 	import { notes } from '$lib/stores/notes';
 	import Login from './login.svelte';
 	import Logo from './logo.svelte';
