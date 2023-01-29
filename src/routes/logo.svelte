@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { user } from '$lib/stores/db';
+    import { status } from '$lib/status';
 
     function handleClick() {
 		if(signedIn){
@@ -8,7 +8,7 @@
         }
 	}
 
-    $: className = $user.name ? 'signedIn' : $user.signedOut && $user.ok ? 'signedOut': 'working';
+    $: className = $status.online ? 'signedIn' : $status.ready ? 'signedOut': 'working';
 </script>
 
 <svg on:click={handleClick} on:keypress={handleClick} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet" viewBox="0 0 255 145" 
@@ -20,7 +20,7 @@
                 d="M30.345 129.174h8.123v2.606h-2.605q-2.529 4.368-6.973 6.973-4.445 2.606-9.656 2.606-7.97 0-13.64-5.594Q0 130.094 0 122.125q0-7.97 5.594-13.564 5.67-5.67 13.64-5.67 7.97 0 13.564 5.67 5.67 5.594 5.67 13.563 0 .384-.076 1.303H6.284q.46 6.284 4.674 10.652 4.291 4.291 10.039 4.291 3.601 0 6.666-1.762 3.142-1.763 5.211-4.828h-2.529zm-9.348-23.295q-3.832 0-7.127 1.992-3.218 1.993-5.287 5.441-1.993 3.372-2.3 7.51h29.503q-.46-6.284-4.75-10.575-4.216-4.368-10.04-4.368z"
                 fill="#FFFFFF"
                 id="e" />
-                <path
+            <path
                 d="M197.705 103.12h10.422v2.606h-3.832v18.62q0 6.897-4.98 11.878-4.905 4.905-11.878 4.905-6.974 0-11.878-4.905-4.904-4.98-4.904-11.877v-18.621h-2.146v-2.606h10.422v2.606h-2.07v19.08q0 3.372 1.61 6.208 1.686 2.835 4.521 4.52 2.912 1.687 6.284 1.687 5.057 0 8.66-3.602 3.677-3.678 3.677-8.812v-19.081h-3.908z"
                 fill="#FFFFFF"
                 id="u" />
@@ -99,13 +99,13 @@
     svg path#N, svg path#Q {
         transition-delay: 0.2s;
         transition-duration: 0.7s;
-        fill: #000;
+        fill: var(--primary-inverse, #000 );
     }
 
     svg.signedIn {
-		height: 48px;
+		height: 3.2em;
         width: auto;
-		top: 0px;
+		top: 4px;
 		left: 4px;
 	}
 

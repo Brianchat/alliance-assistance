@@ -1,161 +1,85 @@
 <script>
 	import { onMount } from 'svelte';
-	import { cubicInOut, cubicIn, cubicOut } from 'svelte/easing';
-	import { fade, fly } from 'svelte/transition';
-	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
-    import { page } from '$app/stores';
-    import { goto } from '$app/navigation';
-	import MultiSelect from 'svelte-multiselect';
-	import { Chasing } from 'svelte-loading-spinners';
+	import { fade } from 'svelte/transition';
 
-	import { sync, user, logOut, checkAuthStatus } from '$lib/stores/db';
-	import { notes } from '$lib/stores/notes';
-	import Login from './login.svelte';
+	import { signOut } from '@auth/sveltekit/client';
+
+	import { page } from '$app/stores';
+	import { status } from '$lib/status';
+	import { notes } from '$lib/notes';
+	import { load } from '$lib/db';
+
 	import Logo from './logo.svelte';
+	import Login from './login.svelte';
 
+	let db = false;
 
-	export const prerender = false;
-	export const ssr = false;
-	export const csr = true;
-
-	let h;
-	let w;
-	let navHeight = 50;
-	let sidebarOpen = true;
-    let options = ['animal','bee','camel','dolphin','elephant','fish','giraffe','hippo','iguana','jackal','koala','lima','mongoose']; 
-    let selected = [];
-    let tags = [];
-
-	const clientSettings = writable({h, w, navHeight});
-	setContext('clientSettings', clientSettings);
-
-    const update = (e) => {
-        let url = new URL($page.url);
-        let newSelected = [...selected];
-        if (e.detail.type === 'add') newSelected.concat(e.detail.option);
-        if (e.detail.type === 'remove') newSelected.filter(item => item !== e.detail.option);
-        if (e.detail.type === 'removeAll') newSelected = [];
-        newSelected.length>0 ? url.searchParams.set('tags', newSelected) : url.searchParams.delete('tags');
-        goto(url);
-    };
-
-	onMount(() => {
-		checkAuthStatus();
-		const websocket = new WebSocket(`wss://${location.host}/ws`);
-		websocket.addEventListener('message', event => {
-			console.log('Message received from server');
-			console.log(event.data);
-		});
-		websocket.onopen = ()=>{
-			websocket.send('hello'); 
-		} 
+	// Ensure execution only on the browser, after the pouchdb script has loaded.
+	onMount(async function () {
+		load();
 	});
-
-	$: sidebarWidth = 0; // w > 100 ? '240px' : '50px';
-    $: selected = $page.url.searchParams.get('tags') ? $page.url.searchParams.get('tags').split(',') : [];
-	$: { clientSettings.set({ h, w, navHeight})}
 </script>
 
-<svelte:window bind:innerHeight={h} bind:innerWidth={w} />
-
-
-{#if $user.name}
-    <main
-		in:fade={{ duration: 1000, delay: 2500, easing: cubicIn }}
-		out:fade={{ duration: 1000, easing: cubicOut }}
-		style="--sidebar-width: {sidebarWidth};--nav-height: {navHeight}"
-	>
+{#if $page.data.session}
+	<header transition:fade>
+		<nav data-theme="dark">
+			<div name="logo" />
+			<ul>
+				<li>
+					{#if $page.data.session.user?.image}
+						<button
+							on:click={() => signOut()}
+							class="logout button avatar"
+							style="--avatar: url('{$page.data.session.user.image}')"
+						/>
+					{:else}
+						<button on:click={() => signOut()}>
+							{$page.data.session.user?.name ?? $page.data.session.user?.email}</button
+						>
+					{/if}
+				</li>
+				<li />
+			</ul>
+		</nav>
+	</header>
+	<main class="container" transition:fade>
 		<slot />
 	</main>
-	<nav in:fade={{ duration: 1000, delay: 2000, easing: cubicIn }} out:fade={{ y: h, duration: 1200, easing: cubicOut }} bind:clientHeight={navHeight} >
-		<MultiSelect
-			bind:selected
-			options={options}
-			outerDivClass="search form_group"
-            liSelectedClass="tag_selected"
-            liOptionClass="tag_option"
-			inputClass="form_field"
-			placeholder="Type to Search..."
-            allowUserOptions="append*"
-            on:change={update}
-		>
-			<span let:idx let:option slot="option" class="option">
-				<i class="fa-solid fa-tag" />
-				{option}
-			</span>
-			<span let:idx let:option slot="selected" class="selected">
-				<i class="fa-solid fa-tag" />
-				{option}
-			</span>
-		</MultiSelect>
-		<button class="logout button" type="submit" on:click={logOut}>{$user.name.split(" ").map((n)=>n[0]).join("")}</button>
-	</nav>
-{:else if $user.signedOut && $user.ok}
-	<Login />
 {:else}
-	<div id="spinner" out:fade={{ duration: 500, delay: 500 }} >
-		<Chasing size="60" color="#bc07bc" unit="px" duration="1s" />
+	<div transition:fade >
+		<Login />
 	</div>
 {/if}
+
 <Logo />
 
 <style>
-	:global(body) {
-		height: 100vh;
-		margin: 0px;
-		padding: 0px;
-		font-family: 'Maven Pro', sans-serif;
-		overflow: hidden;
-		background-color: #e7ece7;
-	}
-
-	#spinner {
-		position: fixed;
- 		top: calc(50vh - 220px);
-		left: calc(50vw + 8px);
-		transition-duration: 2.5s;
-		transition-delay: 1s;
-	}
-
 	nav {
-		position: fixed;
-		height: var(--nav-height, 50px);
-		left: 0px;
-		right: 0px;
-		margin: 0px;
-		background-color: #2d2d2d;
-		padding: 0px;
-		border-bottom: solid 1px #333;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		background-color: #202124;
+		border-bottom: solid 1px #404248;
 	}
 
-	main {
-		position: fixed;
-		top: 51px;
-		left: var(--sidebar-width);
-		right: 0px;
-		bottom: 0px;
-		background-color: #e7ece7;
-		overflow: auto;
-		z-index: 1;
+    button.logout::before {
+		border-radius: 40%;
 	}
 
 	button.logout {
 		position: absolute;
 		top: 1px;
 		right: 1px;
-		width: 42px;
-		height: 40px;
+		height: 3.2em;
+        width: auto;
+        min-width: 3.2em;
 		text-transform: capitalize;
 		padding: 6px 5px 4px 5px;
-		border-radius: 21px;
+		border-radius: 1.6em;
 	}
 
-	button.logout:after {
-		border-radius: 21px;
+	button.logout::after {
+		border-radius: 2rem;
+        background-color: white;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: var(--avatar)
 	}
-
 </style>

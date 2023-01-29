@@ -1,4 +1,4 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 
 export const status = writable({
     needRefresh: false,
@@ -7,5 +7,8 @@ export const status = writable({
     registration: undefined,
     beforeInstallPrompt: undefined,
     canInstall: false,
-    updateFunction: undefined
+    updateFunction: undefined,
+    signedIn: false,
+    ready: false,
+    status: 'Loading'
 });
