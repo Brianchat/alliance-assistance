@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { status } from '$lib/status';
+    import { status } from '$lib/stores/status';
 
     function handleClick() {
 		if(signedIn){

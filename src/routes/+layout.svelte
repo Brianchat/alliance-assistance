@@ -5,14 +5,13 @@
 	import { signOut } from '@auth/sveltekit/client';
 
 	import { page } from '$app/stores';
-	import { status } from '$lib/status';
-	import { notes } from '$lib/notes';
-	import { load } from '$lib/db';
+	import { status } from '$lib/stores/status';
+	import { notes } from '$lib/stores/notes';
+	import { tasks } from '$lib/stores/tasks';
+	import { db, load } from '$lib/db';
 
 	import Logo from './logo.svelte';
 	import Login from './login.svelte';
-
-	let db = false;
 
 	// Ensure execution only on the browser, after the pouchdb script has loaded.
 	onMount(async function () {
@@ -26,6 +25,9 @@
 			<div name="logo" />
 			<ul>
 				<li>
+					{ JSON.stringify($page.data.session.user.email) }
+				</li>
+				<li>
 					{#if $page.data.session.user?.image}
 						<button
 							on:click={() => signOut()}
@@ -38,7 +40,6 @@
 						>
 					{/if}
 				</li>
-				<li />
 			</ul>
 		</nav>
 	</header>
@@ -52,6 +53,7 @@
 {/if}
 
 <Logo />
+
 
 <style>
 	nav {

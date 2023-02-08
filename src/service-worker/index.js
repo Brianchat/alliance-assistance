@@ -1,5 +1,5 @@
 import { build, files, version } from '$service-worker';
-import { status } from '$lib/status';
+import { status } from '$lib/stores/status';
 
 const worker = self;
 const FILES = `cache${version}`;
