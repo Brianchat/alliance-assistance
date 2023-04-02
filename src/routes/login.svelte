@@ -1,6 +1,6 @@
 <script context="module">
 	import { dev } from '$app/environment';
-	import { signIn, signOut } from "@auth/sveltekit/client"
+	import { signIn, signOut } from "@auth/sveltekit/client";
 
 	export const hydrate = dev;
 
