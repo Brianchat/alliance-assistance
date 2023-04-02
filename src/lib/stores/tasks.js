@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import { create, remove } from "../db";
+import { create, update } from "../db";
 
 export const tasks = writable([]);
 
@@ -9,6 +9,11 @@ tasks.create = ( task ) =>{
 };
 
 tasks.remove = ( task ) =>{
-    console.log('Deleting');
-    remove(task);
+    task.completed = true;
+    update(task);
+};
+
+tasks.toggle = ( task ) =>{
+    task.completed = !task.completed;
+    update(task);
 };

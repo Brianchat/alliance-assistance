@@ -3,7 +3,7 @@
     import { status } from '$lib/stores/status';
 
     function handleClick() {
-		if(signedIn){
+		if($status.online){
             goto('/');
         }
 	}

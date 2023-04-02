@@ -4,21 +4,9 @@ import { page } from '$app/stores';
 import { status } from '$lib/stores/status';
 import { notes } from '$lib/stores/notes';
 import { tasks } from '$lib/stores/tasks';
+import { projects } from '$lib/stores/projects';
 
 export let db;
-// create a design doc
-let ddoc = {
-	_id: '_design/index',
-	views: {
-		index: {
-			map: function mapFun(doc) {
-				if (doc.type) {
-					emit(doc.type);
-				}
-			}.toString()
-		}
-	}
-};
 
 export const load = async () => {
 	db = new PouchDB('my_database');
@@ -32,9 +20,12 @@ export const load = async () => {
 			}
 		}
 	);
+
 	db.sync(server, {
 		live: true,
-		retry: true
+		retry: true,
+		// filter: 'index/owner',
+  		// query_params: {owner: encodeURIComponent(owner)}
 	})
 		.on('complete', async () => {
 			db.destroy().then(() => {
@@ -66,6 +57,13 @@ export const load = async () => {
             }).then((result) =>{
                 tasks.set( result.rows )
             });
+
+			db.query('index', {
+				key: 'project',
+				include_docs: true
+			}).then((result) =>{
+				projects.set( result.rows )
+			});
 		})
 		.on('active', async function (active) {
 			status.update((s) => {
@@ -95,22 +93,19 @@ export const load = async () => {
 				return s;
 			});
 		});
-    
-    // save the design doc
-	try {
-		await db.put(ddoc);
-	} catch (err) {
-		if (err.name !== 'conflict') {
-			throw err;
-		}
-		// ignore if doc already exists
-	}
 
     db.query('index', {
         key: 'task',
         include_docs: true
     }).then((result) =>{
         tasks.set( result.rows )
+    });
+
+	db.query('index', {
+        key: 'project',
+        include_docs: true
+    }).then((result) =>{
+        projects.set( result.rows )
     });
 
     notes.set(
@@ -131,7 +126,8 @@ export const load = async () => {
 };
 
 export const create = async (doc) => {
-	doc.owner = get(page)?.data.session.user.email;
+	const owner = get(page)?.data.session.user.email;
+	doc.owner = encodeURIComponent(owner);
     doc.start = new Date();
     try {
 		return db.post(doc);
@@ -143,6 +139,14 @@ export const create = async (doc) => {
 export const remove = async (doc) => {
     try {
 		return db.remove(doc);
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const update = async (doc) => {
+    try {
+		return db.put(doc);
 	} catch (err) {
 		console.log(err);
 	}
