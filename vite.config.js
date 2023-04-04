@@ -1,11 +1,9 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vitest/config';
 
-const config = {
+export default defineConfig({
 	plugins: [sveltekit()],
-	define: {
-		global: 'window',
-		process: { env: {} }
+	test: {
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
-};
-
-export default config;
+});
