@@ -1,7 +1,8 @@
 <script>
     import { onMount } from 'svelte';
-    import Logo from './logo.svelte';
+    import { fade } from 'svelte/transition';
 
+    import Logo from './logo.svelte';
     import { status } from '$lib/stores/status';
 
     onMount(async function () {
@@ -10,16 +11,18 @@
                 s.online=true;
                 return s;
             })
-        }, 1000);
+        }, 800);
 	});
 </script>
 
 <nav>
 
 </nav>
-<main>
+{#if $status?.online }
+<main transition:fade="{{ duration: 3000 }}" >
     <slot />
 </main>
+{/if}
 <Logo />
 
 <style>
