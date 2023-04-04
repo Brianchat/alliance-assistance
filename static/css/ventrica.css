@@ -113,11 +113,14 @@ h1, h2, h3, h4, h5, h6 {
     --font-weight: 500;
 }
 
-header.nav {
+header nav {
   position: fixed;
+  top: 0px;
   left: 0px;
   right: 0px;
   height: 3.5em;
+  border-bottom: solid 1px #555;
+  background-color: #111;
 }
 
 main {
@@ -126,6 +129,8 @@ main {
   right: 0px;
   top: 3.5em;
   bottom: 0px;
+  margin: 0px auto;
+  max-width: 1000px;
   overflow: auto;
 }
 

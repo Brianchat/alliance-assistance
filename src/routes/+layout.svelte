@@ -15,9 +15,11 @@
 	});
 </script>
 
-<nav>
+<header>
+    <nav>
 
-</nav>
+    </nav>
+</header>
 {#if $status?.online }
 <main transition:fade="{{ duration: 3000 }}" >
     <slot />
@@ -26,13 +28,5 @@
 <Logo />
 
 <style>
-    nav {
-        position:fixed;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        height: 3.8em;
-        border-bottom: solid 1px #555;
-        background-color: #111;
-    }
+
 </style>

@@ -272,7 +272,7 @@
 	<ul>
 		<li>If the information is publicly available and is specified by the regulations</li>
 	</ul>
-	<p><b>4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</b></p>
+	<h2 id="whoshare">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h2>
 	<p>
 		<b>In Short:</b>&nbsp;We may share information in specific situations described in
 		this section and/or with the following third parties.
@@ -285,7 +285,7 @@
 			or a portion of our business to another company.
 		</li>
 	</ul>
-	<p><b>5. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</b></p>
+	<h2 id="sociallogins">5. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h2>
 	<p>
 		<b>In Short:&nbsp;</b>If you choose to register or log in to our Services using a
 		social media account, we may have access to certain information about you.
@@ -306,7 +306,7 @@
 		understand how they collect, use, and share your personal information, and how you can set your
 		privacy preferences on their sites and apps.
 	</p>
-	<p><b>6. HOW LONG DO WE KEEP YOUR INFORMATION?</b></p>
+	<h2 id="inforetain">6. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
 	<p>
 		<b>In Short:&nbsp;</b>We keep your information for as long as necessary to fulfil the
 		purposes outlined in this privacy notice unless otherwise required by law.
@@ -324,7 +324,7 @@
 		your personal information has been stored in backup archives), then we will securely store your
 		personal information and isolate it from any further processing until deletion is possible.
 	</p>
-	<p><b>7. HOW DO WE KEEP YOUR INFORMATION SAFE?</b></p>
+	<h2 id="infosafe">7. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
 	<p>
 		<b>In Short:&nbsp;</b>We aim to protect your personal information through a system of
 		organisational and technical security measures.
@@ -340,7 +340,7 @@
 		to and from our Services is at your own risk. You should only access the Services within a
 		secure environment.
 	</p>
-	<p><b>8. WHAT ARE YOUR PRIVACY RIGHTS?</b></p>
+	<h2 id="privacyrights">8. WHAT ARE YOUR PRIVACY RIGHTS?</h2>
 	<p>
 		<b>In Short:</b>&nbsp; In some regions, such as the European Economic Area (EEA),
 		United Kingdom (UK), and Canada , you have rights that allow you greater access to and control
@@ -373,7 +373,7 @@
 			href="https://www.edoeb.admin.ch/edoeb/en/home.html">Federal Data Protection and Information
 			Commissioner</a>.
 	</p>
-	<p>
+	<p id="withdrawconsent">
 		<b>Withdrawing your consent:</b> If we are relying on your consent to process your
 		personal information, which may be express and/or implied consent depending on the applicable
 		law, you have the right to withdraw your consent at any time. You can withdraw your consent at
@@ -402,7 +402,7 @@
 	<p>
 		If you have questions or comments about your privacy rights, you may email us at dpo@enque.org .
 	</p>
-	<p><b>9. CONTROLS FOR DO-NOT-TRACK FEATURES</b></p>
+	<h2 id="DNT">9. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
 	<p>
 		Most web browsers and some mobile operating systems and mobile applications include a
 		Do-Not-Track ( `DNT` ) feature or setting you can activate to signal your privacy preference not
@@ -413,7 +413,7 @@
 		tracking is adopted that we must follow in the future, we will inform you about that practice in
 		a revised version of this privacy notice.
 	</p>
-	<p><b>10. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</b></p>
+	<h2 id="caresidents">10. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</h2>
 	<p>
 		<b>In Short:&nbsp;</b>Yes, if you are a resident of California, you are granted
 		specific rights regarding access to your personal information.
@@ -762,7 +762,7 @@
 		to the contact details at the bottom of this document. If you have a complaint about how we
 		handle your data, we would like to hear from you.
 	</p>
-	<p><b>11. DO VIRGINIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</b></p>
+	<h2 id="virginia">11. DO VIRGINIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</h2>
 	<p>
 		<b>In Short:</b>&nbsp;Yes, if you are a resident of Virginia, you may be granted
 		specific rights regarding access to and use of your personal information.
@@ -868,7 +868,7 @@
 			href="https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint">Attorney General to submit
 			a complaint</a>.
 	</p>
-	<p><b>12. DO WE MAKE UPDATES TO THIS NOTICE?</b></p>
+	<h2 id="policyupdates">12. DO WE MAKE UPDATES TO THIS NOTICE?</h2>
 	<p>
 		<b>In Short:&nbsp;</b>Yes, we will update this notice as necessary to stay compliant
 		with relevant laws.
@@ -880,15 +880,17 @@
 		a notice of such changes or by directly sending you a notification. We encourage you to review
 		this privacy notice frequently to be informed of how we are protecting your information.
 	</p>
-	<p><b>13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</b></p>
+	<h2 id="contact">13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
 	<p>
 		If you have questions or comments about this notice, you may email us at dpo@enque.org &nbsp;or
 		by post to:
 	</p>
-	<p>eNQue Limited</p>
-	<p>77 Wheatfield Way</p>
-	<p>Chelmsford CM12RB &nbsp;</p>
-	<p><b>14. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</b></p>
+	<p class="address">	
+		eNQue Limited<br/>
+		77 Wheatfield Way<br/>
+		Chelmsford CM12RB
+	</p>
+	<h2 id="request">14. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</h2>
 	<p>
 		You have the right to request access to the personal information we collect from you, change
 		that information, or delete it. To request to review, update, or delete your personal
@@ -898,8 +900,10 @@
 
 <style>
 	div {
-		background-color: #ccc;
-		padding: 0px 10px;
+		background-color: rgb(248, 247, 241);
+		padding: 12px;
+		border-left: solid 1px #ccc;
+		border-right: solid 1px #ccc;
 	}
 
 	h1 {
@@ -917,5 +921,8 @@
 
 	b {
 		font-weight: bold;
+	}
+	p.address {
+		text-align: center;
 	}
 </style>

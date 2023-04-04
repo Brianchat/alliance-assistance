@@ -102,7 +102,7 @@
     }
 
     svg.signedIn {
-		height: 3.2em;
+		height: calc( 3.5em - 10px );
         width: auto;
 		top: 4px;
 		left: 4px;
