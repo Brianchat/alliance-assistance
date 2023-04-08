@@ -83,11 +83,10 @@
         transition-property: top, left, height;
         transition-duration: 2s;
         transition-timing-function: cubic-bezier();
-        transition-delay: 0.5s;
         z-index: 30;
     }
 
-    svg.working rect#bg, svg.signedIn:hover rect#bg {
+    svg.working rect#bg {
         fill: url(#Gradient);
     }
 

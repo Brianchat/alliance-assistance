@@ -904,6 +904,10 @@
 		padding: 12px;
 		border-left: solid 1px #ccc;
 		border-right: solid 1px #ccc;
+		max-width: 1000px;
+		height: 100%;
+		overflow: auto;
+		margin: 0px auto;
 	}
 
 	h1 {

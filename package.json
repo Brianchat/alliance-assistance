@@ -21,5 +21,12 @@
 		"vite": "^4.2.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"lodash": "^4.17.21",
+		"pouchdb": "^8.0.1",
+		"pouchdb-core": "^8.0.1",
+		"rxdb": "^14.6.0",
+		"rxjs": "^7.8.0"
+	}
 }
