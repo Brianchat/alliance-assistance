@@ -24,9 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"lodash": "^4.17.21",
-		"pouchdb": "^8.0.1",
-		"pouchdb-core": "^8.0.1",
-		"rxdb": "^14.6.0",
-		"rxjs": "^7.8.0"
+		"mermaid": "^10.1.0",
+		"peerjs": "^1.4.7"
 	}
 }

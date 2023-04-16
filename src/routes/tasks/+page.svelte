@@ -4,7 +4,7 @@
 
     import TodoItem from "./TodoItem.svelte";
 
-    let db = new PouchDB("db");
+    let db = new PouchDB("eNQue");
 
     let todos = [];
     let newTodoText = "";
@@ -64,6 +64,7 @@
 </script>
 
 <h1>Tasks</h1>
+{ JSON.stringify(sortedAndFilteredTodos)}
 <div>
     <label for="filter">Filter:</label>
     <select id="filter" bind:value="{filterByWhat}">
