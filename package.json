@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-cloudflare": "^2.2.0",
 		"lodash": "^4.17.21",
 		"mermaid": "^10.1.0",
 		"peerjs": "^1.4.7"
