@@ -6,7 +6,7 @@ const config = {
 		adapter: adapter({
 			routes: {
 			  include: ['/*'],
-			  exclude: ['<all>', '/peer']
+			  exclude: ['<all>', '/peer', '/lib/*']
 			}
 		  })
 	}
