@@ -31,5 +31,13 @@
 <Logo />
 
 <style>
+    header nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    header nav a {
+        margin: 5px;
+    }
 
 </style>
