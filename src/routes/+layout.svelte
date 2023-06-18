@@ -15,13 +15,16 @@
 	});
 </script>
 
-<header>
-    <nav>
 
-    </nav>
-</header>
 {#if $status?.online }
-<main transition:fade="{{ duration: 3000 }}" >
+    <header>
+        <nav>
+            <a href="/deeds">Deeds</a>
+            <a href="/tasks">Tasks</a>
+        </nav>
+    </header>
+    <main transition:fade="{{ duration: 3000 }}" >
+
     <slot />
 </main>
 {/if}

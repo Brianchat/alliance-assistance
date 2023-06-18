@@ -1,0 +1,33 @@
+{
+    "short_name": "eNQue",
+    "name": "eNQue",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/icons/eNQue_512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#cccc",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#bc07bc",
+    "shortcuts": [
+      {
+        "name": "List your Deeds",
+        "short_name": "Deeds",
+        "description": "Shows everything you have done.",
+        "url": "/deeds",
+        "icons": [{ "src": "/icons/eNQue_192.png", "sizes": "192x192" }]
+      },
+      {
+        "name": "What's next?",
+        "short_name": "Tasks",
+        "description": "What tasks should you be working on?",
+        "url": "/tasks",
+        "icons": [{ "src": "/icons/eNQue_192.png", "sizes": "192x192" }]
+      }
+    ],
+    "description": "AI Study Buddy."
+}
