@@ -2,6 +2,7 @@
     import { writable } from 'svelte/store'
 
     export const enabled = writable(JSON.parse(localStorage.getItem('user')));
+    const carReg=writable('');
 
     enabled.subscribe((value) => localStorage.user = JSON.stringify(value));
 </script>
