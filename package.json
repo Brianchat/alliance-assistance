@@ -1,5 +1,5 @@
 {
-	"name": "enque-kit",
+	"name": "alliance-assistance",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -24,6 +24,8 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^2.2.0",
-		"lodash": "^4.17.21"
+		"airtable": "^0.12.1",
+		"lodash": "^4.17.21",
+		"peerjs": "^1.4.7"
 	}
 }

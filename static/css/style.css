@@ -1,0 +1,146 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+form {
+    color: #fff;
+    padding: 0px 16px;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+
+.card {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    width: calc( 100% - 10px );
+    max-width: 425px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
+    padding: 0.75rem;
+}
+
+.card-warning {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffa50099;
+    position: relative;
+    padding: 0px 5px 5px 5px;
+    margin: 0px 0px 5px 0px;
+    font-size: 1rem;
+}
+
+.card-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.222;
+    text-align: left;
+    margin: 10px 0px 5px 0px;
+}
+
+.card-warning >.card-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #800404;
+    line-height: 1.222;
+    text-align: center;
+}
+
+.card-heading small {
+    display: block;
+    font-size: 0.75em;
+    font-weight: 400;
+    margin-top: 0.25em;
+}
+
+.card-form {
+    padding: 0 1rem 0;
+}
+
+.input {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.input-label {
+    color: #333;
+    position: absolute;
+    top: 1.5rem;
+    transition: 0.25s ease;
+}
+
+.input-field {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #333;
+    font: inherit;
+    font-size: 1.125rem;
+    padding: 0.25rem 0;
+}
+
+.input-field:valid {
+    outline: 0;
+    color: #065f3a;
+    border-bottom-color: #999;
+}
+.input-field:valid + .input-label {
+    color: #999;
+    transform: translateY(-1.5rem);
+}
+
+.input-field:focus {
+    outline: 0;
+    border-bottom-color: #165573;
+}
+.input-field:focus + .input-label {
+    color: #165573;
+    transform: translateY(-1.5rem);
+}
+
+.action {
+    margin-top: 2rem;
+}
+
+.action-button {
+    font: inherit;
+    font-size: 1.25rem;
+    padding: 1em;
+    width: 100%;
+    font-weight: 500;
+    background-color: #165573;
+    border-radius: 6px;
+    color: #fff;
+    border: 0;
+}
+.action-button:focus {
+    outline: 0;
+}
+
+.card-info {
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #333;
+}
+.card-info a {
+    display: block;
+    color: #165573;
+    text-decoration: none;
+}

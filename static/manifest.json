@@ -1,33 +1,92 @@
 {
-    "short_name": "eNQue",
-    "name": "eNQue",
-    "start_url": "/",
-    "icons": [
-      {
-        "src": "/icons/eNQue_512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
-    "background_color": "#cccc",
-    "display": "standalone",
-    "scope": "/",
-    "theme_color": "#bc07bc",
-    "shortcuts": [
-      {
-        "name": "List your Deeds",
-        "short_name": "Deeds",
-        "description": "Shows everything you have done.",
-        "url": "/deeds",
-        "icons": [{ "src": "/icons/eNQue_192.png", "sizes": "192x192" }]
-      },
-      {
-        "name": "What's next?",
-        "short_name": "Tasks",
-        "description": "What tasks should you be working on?",
-        "url": "/tasks",
-        "icons": [{ "src": "/icons/eNQue_192.png", "sizes": "192x192" }]
-      }
-    ],
-    "description": "AI Study Buddy."
+  "short_name": "AllianceAssistance",
+  "name": "AllianceAssistance",
+  "start_url": "/",
+  "icons": [{
+      "src": "/icons/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x96.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x72.png",
+      "type": "image/png",
+      "sizes": "72x72",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/maskable_icon_x48.png",
+      "type": "image/png",
+      "sizes": "48x48",
+      "purpose": "any maskable"
+    }
+  ],
+  "background_color": "#ccc",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#165573",
+  "shortcuts": [{
+      "name": "List your Deeds",
+      "short_name": "Deeds",
+      "description": "Shows everything you have done.",
+      "url": "/deeds",
+      "icons": [{
+        "src": "/icons/eNQue_192.png",
+        "sizes": "192x192"
+      }]
+    },
+    {
+      "name": "What's next?",
+      "short_name": "Tasks",
+      "description": "What tasks should you be working on?",
+      "url": "/tasks",
+      "icons": [{
+        "src": "/icons/eNQue_192.png",
+        "sizes": "192x192"
+      }]
+    }
+  ],
+  "description": "AI Study Buddy.",
+  "permissions": {
+    "audio-capture": {
+      "description": "Required to capture audio using getUserMedia()"
+    },
+    "video-capture": {
+      "description": "Required to capture video using getUserMedia()"
+    }
+  },
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "http://localhost:5173/manifest.json"
+  }]
 }
