@@ -59,12 +59,13 @@
 <h3>Expires: 20/01/2024</h3>
 
 
-<div class="wrapper" class:pressed={pressed} >
-	<button class="inner"  on:mousedown={()=> pressed = true} on:click={click} on:mouseup={()=> pressed = false}>
+<button class="wrapper" class:pressed={pressed} on:mousedown={()=> pressed = true} on:click={click} on:mouseup={()=> pressed = false}>
+	<div class="inner"  >
 		<img src="/siren-call.svg" alt="Press in Emergency" />
 		<!-- <span /> -->
-	</button>
-</div>
+	</div>
+</button>
+
 <p>{pressed}</p>
 {#if position && position.coords}
 <p>Latitude: {position.coords.latitude}</p>
@@ -100,6 +101,7 @@
 		font-family: 'Roboto-Black', 'Courier New', Courier, monospace;
 	}
 	.wrapper {
+		display: block;
 		box-sizing: border-box;
 		width: 150px;
 		height: 150px;
@@ -111,6 +113,7 @@
 		padding: 20px;
 		box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.13), 0 5px 8px rgba(0, 0, 0, 0.5),
 			0 10px 10px 4px rgba(0, 0, 0, 0.3);
+		cursor: pointer;
 	}
 
     .wrapper.pressed {
@@ -153,7 +156,6 @@
 		background: linear-gradient(#8a2c20, #9e4235);
 		display: block;
 		box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.05), 0 2px 5px rgba(255, 255, 255, 0.1);
-		cursor: pointer;
 	}
 
     .wrapper.pressed .inner {
