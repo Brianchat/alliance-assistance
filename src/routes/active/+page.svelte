@@ -1,4 +1,9 @@
 <div class="card">
+    <div class="card-info">
+        <h2 class="card-heading">Alert Created</h2>
+        <p>Message Received. You will get a call shortly.</p>
+        <a href="/">Cancel Alert</a>
+    </div>
 
     <div class="card-info">
         <h2 class="card-heading">Help is on the way!</h2>
@@ -18,7 +23,7 @@
         font-size: 1.2rem;
         text-transform:uppercase;
         display: inline-block;
-        padding: 3px 10px;
+        padding: 8px 15px;
         background-color: #165573;
         color: #fff;
         border-radius: 5px;

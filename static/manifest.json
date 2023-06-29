@@ -1,79 +1,62 @@
 {
   "short_name": "AllianceAssistance",
-  "name": "AllianceAssistance",
+  "name": "Alliance Assistance",
   "start_url": "/",
-  "icons": [{
-      "src": "/icons/maskable_icon.png",
-      "type": "image/png",
-      "sizes": "1024x1024",
-      "purpose": "any maskable"
-    },
+  "orientation": "any",
+  "icons": [
     {
-      "src": "/icons/maskable_icon_x512.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/maskable_icon_x384.png",
-      "type": "image/png",
-      "sizes": "384x384",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/maskable_icon_x192.png",
-      "type": "image/png",
+      "src": "/icons/manifest-icon-192.maskable.png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/icons/maskable_icon_x128.png",
+      "src": "/icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "128x128",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
-      "src": "/icons/maskable_icon_x96.png",
+      "src": "/icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "96x96",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/maskable_icon_x72.png",
+      "src": "/icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "72x72",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/maskable_icon_x48.png",
-      "type": "image/png",
-      "sizes": "48x48",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ],
   "background_color": "#ccc",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#165573",
-  "shortcuts": [{
+  "shortcuts": [
+    {
       "name": "List your Deeds",
       "short_name": "Deeds",
       "description": "Shows everything you have done.",
       "url": "/deeds",
-      "icons": [{
-        "src": "/icons/eNQue_192.png",
-        "sizes": "192x192"
-      }]
+      "icons": [
+        {
+          "src": "/icons/eNQue_192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "What's next?",
       "short_name": "Tasks",
       "description": "What tasks should you be working on?",
       "url": "/tasks",
-      "icons": [{
-        "src": "/icons/eNQue_192.png",
-        "sizes": "192x192"
-      }]
+      "icons": [
+        {
+          "src": "/icons/eNQue_192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ],
   "description": "AI Study Buddy.",
@@ -85,8 +68,22 @@
       "description": "Required to capture video using getUserMedia()"
     }
   },
-  "related_applications": [{
-    "platform": "webapp",
-    "url": "http://localhost:5173/manifest.json"
-  }]
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "http://localhost:5173/manifest.json"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshots/1280x800-screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/screenshots/750x1334-screenshot.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    }
+  ]
 }

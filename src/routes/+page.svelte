@@ -1,27 +1,97 @@
 <script>
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	
 	let pressed = false;
+	let error;
+	let position;
+
+	const successCallback = (p) => {
+		error='Location Success';
+		console.log(p);
+		position = p;
+		// error = JSON.stringify(p);
+		pressed = false
+		
+	};
+
+	const errorCallback = (err) => {
+		error='Location Failure: '+ err.message;
+		console.log(err.code);
+		// error = JSON.stringify(err);
+		pressed = false
+		// goto(`/`);
+	};
+
+	const click = () => {
+		pressed = true
+		error='None';
+		if (navigator.geolocation) {
+			error='Geolocation Present';
+			navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+		} else {
+			error = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	onMount(()=>{
+		navigator.permissions.query({ name: "geolocation" }).then((result) => {
+			if (result.state === "granted") {
+				error = "Geolocation is not supported by this browser.";
+			} else if (result.state === "prompt") {
+				error = "Geolocation is in prompt state.";
+				// navigator.geolocation.getCurrentPosition(
+				// 	revealPosition,
+				// 	positionDenied,
+				// 	geoSettings
+				// );
+			} else if (result.state === "denied") {
+				error = "Geolocation is denied.";
+			}
+			result.addEventListener("change", () => {
+				error = `Geolocation changed to ${result.state}`;
+			});
+		});
+	})
 </script>
 
 <h3>Policy: 00000001</h3>
 <h3>Expires: 20/01/2024</h3>
 
-<a href="/active" on:mousedown={() => (pressed = true)}>
-    <div class="wrapper" class:pressed={pressed}>
-        <div class="inner">
-			<img src="/siren-call.svg" alt="Press in Emergency" />
-            <!-- <span /> -->
-        </div>
-    </div>
-</a>
-<!-- {pressed}
-<a href="sms:+447484845356?&body=Hi">Send an SMS</a>
-<a href="tel:*141#">Send a USSD</a>
-<a href="/peer">WebRTC</a> -->
+
+<div class="wrapper" class:pressed={pressed} >
+	<button class="inner"  on:mousedown={()=> pressed = true} on:click={click} on:mouseup={()=> pressed = false}>
+		<img src="/siren-call.svg" alt="Press in Emergency" />
+		<!-- <span /> -->
+	</button>
+</div>
+<p>{pressed}</p>
+{#if position && position.coords}
+<p>Latitude: {position.coords.latitude}</p>
+<p>Longitude: {position.coords.longitude}</p>
+{JSON.stringify(Object.keys(position))}
+{/if}
+<p class="error">{error}</p>
+<p>
+	<a href="sms:+447484845356?&body=Hi">Send an SMS</a>
+	<a href="tel:*141#">Send a USSD</a>
+	<a href="/peer">WebRTC</a>
+</p>
+
 
 <style>
 	@font-face {
 		font-family: 'Roboto-Black';
 		src: url(/Roboto-Black.ttf) format('truetype');
+	}
+
+	p{
+		color: #fff;
+	}
+
+	p.error {
+		background-color: #5e1912;
+
 	}
 	h3 {
 		color: #fff;
@@ -83,6 +153,7 @@
 		background: linear-gradient(#8a2c20, #9e4235);
 		display: block;
 		box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.05), 0 2px 5px rgba(255, 255, 255, 0.1);
+		cursor: pointer;
 	}
 
     .wrapper.pressed .inner {
